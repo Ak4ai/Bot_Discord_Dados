@@ -1,5 +1,5 @@
 #!/bin/bash
-
+chmod +x start.sh
 # Atualizar e instalar dependências do sistema
 apt-get update && apt-get install -y \
     wget \
