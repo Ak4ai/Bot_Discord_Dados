@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     libnss3 \
     libxtst6 \
     libxrandr2 \
-    chromium
+    chromium \
+    chromium-driver
 
 # Atualize o pip
 RUN pip install --upgrade pip
@@ -38,6 +39,7 @@ RUN pip install -r requirements.txt
 
 # Configurar a variável de ambiente para o caminho do binário do Chrome
 ENV CHROME_BIN=/usr/bin/chromium
+ENV CHROME_DRIVER=/usr/bin/chromedriver
 
 # Comando de execução do container
 CMD ["python", "bot.py"]

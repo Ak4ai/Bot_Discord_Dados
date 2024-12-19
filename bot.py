@@ -95,7 +95,7 @@ def abrir_grupo(driver, nome_grupo):
         print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
 # Configuração do WebDriver com Selenium
-chrome_driver_path = "/usr/bin/chromedriver"  # Caminho do ChromeDriver no contêiner
+chrome_driver_path = os.getenv("CHROME_DRIVER", "/usr/bin/chromedriver")
 service = Service(chrome_driver_path)
 options = Options()
 
