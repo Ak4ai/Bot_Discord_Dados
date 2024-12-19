@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod +x start.sh
+
 # Atualizar e instalar dependências do sistema
 apt-get update && apt-get install -y \
     wget \
@@ -31,8 +31,8 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Configurar a variável de ambiente para o caminho do binário do Chrome
-export CHROME_BIN=/usr/bin/chromium
-export CHROME_DRIVER=/usr/bin/chromedriver
+export CHROME_BIN=$(which chromium)
+export CHROME_DRIVER=$(which chromedriver)
 
 # Iniciar o bot
 python bot.py
