@@ -1,40 +1,43 @@
-# Usar a imagem base do Python
-FROM python:3.10-slim
+# Usando uma imagem base com Python
+FROM python:3.11-slim
 
-# Instalar dependências do sistema para rodar o Chrome headless
+# Instalar dependências necessárias para o Selenium e o Chromium
 RUN apt-get update && apt-get install -y \
     wget \
-    curl \
-    unzip \
+    ca-certificates \
+    fontconfig \
     libx11-dev \
+    libxkbcommon0 \
     libgdk-pixbuf2.0-0 \
-    libglib2.0-0 \
-    libnss3 \
-    libxss1 \
-    libgconf-2-4 \
-    libfontconfig1 \
-    libx11-xcb1 \
+    libpangocairo-1.0-0 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libcups2 \
     libxcomposite1 \
     libxdamage1 \
+    libdbus-1-3 \
+    libdrm2 \
+    libgbm1 \
     libasound2 \
-    libnspr4 \
-    libdbus-glib-1-2 \
-    && rm -rf /var/lib/apt/lists/*
+    libnss3 \
+    libxtst6 \
+    libxrandr2 \
+    chromium
 
-# Baixar e instalar o Google Chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome-stable_current_amd64.deb || apt-get -y --fix-broken install
-
-# Instalar o pip e dependências do Python
+# Atualize o pip
 RUN pip install --upgrade pip
-COPY requirements.txt .
-RUN pip install -r requirements.txt
 
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o código da aplicação
+# Copiar os arquivos do projeto
 COPY . .
 
-# Comando para rodar a aplicação
+# Instalar as dependências do Python
+RUN pip install -r requirements.txt
+
+# Configurar a variável de ambiente para o caminho do binário do Chrome
+ENV CHROME_BIN=/usr/bin/chromium
+
+# Comando de execução do container
 CMD ["python", "bot.py"]
