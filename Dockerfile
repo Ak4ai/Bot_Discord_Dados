@@ -37,4 +37,4 @@ WORKDIR /app
 COPY . .
 
 # Comando para rodar a aplicação
-CMD ["python", "bot_whatsapp.py"]
+CMD ["python", "bot.py"]

@@ -9,7 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import re
 import os
-from webdriver_manager.chrome import ChromeDriverManager
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -75,16 +74,47 @@ def enviar_mensagem(driver, mensagem):
     except Exception as e:
         print(f"Erro ao enviar a mensagem: {e}")
 
+# Função para buscar e abrir um grupo pelo nome
+def abrir_grupo(driver, nome_grupo):
+    try:
+        # Espera até que a caixa de pesquisa esteja visível
+        caixa_pesquisa = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
+        )
+        caixa_pesquisa.click()
+        caixa_pesquisa.send_keys(nome_grupo + Keys.ENTER)
+        sleep(2)  # Aguarda a lista de resultados carregar
+
+        # Seleciona o grupo na lista de resultados
+        grupo = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, f"//span[@title='{nome_grupo}']"))
+        )
+        grupo.click()
+        print(f"Grupo '{nome_grupo}' aberto com sucesso.")
+    except Exception as e:
+        print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
+
 # Configuração do WebDriver com Selenium
+chrome_driver_path = "C:/chromedriver/chromedriver.exe"
+service = Service(chrome_driver_path)
 options = Options()
-options.add_argument("--headless")  # Executa em modo headless
-options.add_argument("--disable-gpu")
+
+# Diretório onde os dados do perfil do Chrome serão salvos
+profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
+options.add_argument(f"user-data-dir={profile_path}")
+options.add_argument("--headless")  # Adiciona a opção headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
-# Inicializa o WebDriver
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-driver.get("https://web.whatsapp.com/")
+driver = webdriver.Chrome(service=service, options=options)
+
+# Navega para o WhatsApp Web
+driver.get("https://web.whatsapp.com")
+
+# Espera até que a página do WhatsApp Web carregue completamente
+WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
+)
 
 # Aguarda o login do usuário
 print("Faça Login Por Favor (apenas na primeira execução)")
@@ -97,9 +127,9 @@ while True:
 
 sleep(5)  # Aguarda a página carregar
 
-# Aguarda o usuário abrir o grupo
-print("Agora, Abra o Grupo que deseja Monitorar")
-input("Você já está pronto? Pressione Enter para continuar...")
+# Solicita o nome do grupo ao usuário
+nome_grupo = input("Digite o nome do grupo que deseja monitorar: ")
+abrir_grupo(driver, nome_grupo)
 
 # Loop para monitorar as mensagens e reagir à última mensagem
 while True:
