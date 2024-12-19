@@ -20,9 +20,7 @@ apt-get update && apt-get install -y \
     libasound2 \
     libnss3 \
     libxtst6 \
-    libxrandr2 \
-    chromium \
-    chromium-driver
+    libxrandr2
 
 # Atualizar o pip
 pip install --upgrade pip
@@ -30,9 +28,9 @@ pip install --upgrade pip
 # Instalar as dependências do Python
 pip install -r requirements.txt
 
-# Configurar a variável de ambiente para o caminho do binário do Chrome
-export CHROME_BIN=$(which chromium)
-export CHROME_DRIVER=$(which chromedriver)
+# Instalar o Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt install -y ./google-chrome-stable_current_amd64.deb
 
 # Iniciar o bot
 python bot.py
