@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import re
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -75,17 +76,14 @@ def enviar_mensagem(driver, mensagem):
         print(f"Erro ao enviar a mensagem: {e}")
 
 # Configuração do WebDriver com Selenium
-chrome_driver_path = os.getenv("CHROMEDRIVER_PATH", "/usr/local/bin/chromedriver")
-service = Service(chrome_driver_path)
 options = Options()
 options.add_argument("--headless")  # Executa em modo headless
 options.add_argument("--disable-gpu")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-options.add_argument(f"--user-data-dir={os.getenv('USER_DATA_DIR', '/tmp/chrome_profile')}")
 
 # Inicializa o WebDriver
-driver = webdriver.Chrome(service=service, options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 driver.get("https://web.whatsapp.com/")
 
 # Aguarda o login do usuário

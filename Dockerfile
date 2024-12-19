@@ -1,7 +1,7 @@
-# Use uma imagem base do Python
+# Usar a imagem base do Python
 FROM python:3.10-slim
 
-# Instalar dependências necessárias para rodar o Selenium com Chrome headless
+# Instalar dependências do sistema para rodar o Chrome headless
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
@@ -18,15 +18,14 @@ RUN apt-get update && apt-get install -y \
     libxdamage1 \
     libasound2 \
     libnspr4 \
-    libnss3 \
     libdbus-glib-1-2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Baixar e instalar o Chrome
+# Baixar e instalar o Google Chrome
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get -y --fix-broken install
 
-# Instalar pip e dependências do Python
+# Instalar o pip e dependências do Python
 RUN pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install -r requirements.txt
