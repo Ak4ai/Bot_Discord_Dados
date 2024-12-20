@@ -117,10 +117,19 @@ driver = webdriver.Chrome(service=service, options=options)
 # Navega para o WhatsApp Web
 driver.get("https://web.whatsapp.com")
 
+# ...existing code...
 # Espera até que a página do WhatsApp Web carregue completamente
-WebDriverWait(driver, 20).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
-)
+try:
+    WebDriverWait(driver, 40).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
+    )
+except TimeoutException:
+    print("Timeout while waiting for the WhatsApp Web page to load.")
+    print(driver.page_source)  # Print the page source for debugging
+    driver.save_screenshot("screenshot.png")  # Save a screenshot for debugging
+    driver.quit()
+    exit(1)
+# ...existing code...
 
 # Aguarda o login do usuário
 print("Faça Login Por Favor (apenas na primeira execução)")
