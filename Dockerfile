@@ -38,9 +38,9 @@ RUN google-chrome --version
 # Baixar a versão correta do ChromeDriver
 RUN wget -q https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip && \
     unzip chromedriver-linux64.zip && \
-    mv chromedriver /usr/local/bin/ && \
+    mv chromedriver-linux64/chromedriver /usr/local/bin/ && \
     chmod +x /usr/local/bin/chromedriver && \
-    rm chromedriver-linux64.zip
+    rm -r chromedriver-linux64 chromedriver-linux64.zip
 
 # Adicionar o código do bot
 WORKDIR /app
