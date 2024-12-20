@@ -37,6 +37,9 @@ RUN google-chrome --version
 RUN CHROME_VERSION=$(google-chrome --version | grep -oE '[0-9.]+') && \
     echo "Chrome version: $CHROME_VERSION" && \
     DRIVER_VERSION=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION) && \
+    echo "Driver version: $DRIVER_VERSION"
+
+RUN DRIVER_VERSION=$(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE_131.0.6778.204) && \
     echo "Driver version: $DRIVER_VERSION" && \
     wget -q https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
