@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Instalar o Google Chrome
-RUN wget -q https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chrome-linux64.zip && \
+RUN wget -q https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.205/linux64/chrome-linux64.zip && \
     unzip chrome-linux64.zip -d /opt && \
     ln -s /opt/chrome-linux64/chrome /usr/bin/google-chrome && \
     rm chrome-linux64.zip
