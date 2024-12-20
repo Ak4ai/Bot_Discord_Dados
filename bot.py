@@ -123,7 +123,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.get("https://web.whatsapp.com")
 
 # Espera até que a página do WhatsApp Web carregue completamente
-WebDriverWait(driver, 40).until(
+WebDriverWait(driver, 120).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
 )
 
