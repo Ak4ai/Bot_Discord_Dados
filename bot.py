@@ -94,13 +94,19 @@ def abrir_grupo(driver, nome_grupo):
     except Exception as e:
         print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
-# Configuração do WebDriver com Selenium
-service = Service('./chromedriver/chromedriver')
-options = webdriver.ChromeOptions()
-options.add_argument("--disable-gpu")  # Desabilita a GPU
-options.add_argument("--remote-debugging-port=9222")  # Porta para depuração remota
+# Configurações do Chrome
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Modo headless para servidores
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--disable-gpu")  # Desabilita a GPU
+chrome_options.add_argument("--remote-debugging-port=9222")  # Porta para depuração remota
 
-driver = webdriver.Chrome(service=service, options=options)
+# Caminho do ChromeDriver
+service = Service("/usr/local/bin/chromedriver")
+
+# Inicializar o driver
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 # Navega para o WhatsApp Web
 driver.get("https://web.whatsapp.com")
