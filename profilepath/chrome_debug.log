@@ -1,19 +1,10 @@
-[19276:26020:1219/182313.868:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[19276:26020:1219/182313.981:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[13384:16696:1219/182314.131:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21940:19808:1219/182314.135:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[5604:14480:1219/182314.166:INFO:cpu_info.cc(53)] Available number of cores: 16
-[5192:9104:1219/182314.509:INFO:cpu_info.cc(53)] Available number of cores: 16
-[8736:14124:1219/182314.795:INFO:cpu_info.cc(53)] Available number of cores: 16
-[19276:26020:1219/182314.799:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yi/r/MeyrQHdSQFa.js (155)
-[19276:26020:1219/182318.046:INFO:CONSOLE(71)] "ErrorUtils caught an error:
+[15948:28284:1220/030408.699:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[15948:28284:1220/030408.762:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[18416:7764:1220/030408.914:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[15948:28284:1220/030409.506:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y6/r/rZWR0gV5qvL.js (155)
+[15948:28284:1220/030413.808:INFO:CONSOLE(71)] "ErrorUtils caught an error:
 
-Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"553799546982@c.us","type":"in","isBusiness":false,"isEnterprise":false,"isSmb":false,"isContactSyncCompleted":1,"disappearingModeDuration":604800,"disappearingModeSettingTimestamp":1716430527,"textStat" (type=object,Object)
+Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"553799546982@c.us","type":"in","isBusiness":false,"isEnterprise":false,"isSmb":false,"isContactSyncCompleted":0,"textStatusLastUpdateTime":-1,"syncToAddressbook":false},"showNotifyName":true,"elevatedP" (type=object,Object)
 
-Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yY/r/vYZPpR-HLu2.js (71)
-[19276:26020:1219/182318.966:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[19276:26020:1219/182321.313:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yi/r/MeyrQHdSQFa.js (155)
-[19276:26020:1219/182323.971:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[19276:26020:1219/182328.974:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[19276:26020:1219/182333.980:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[19276:26020:1219/182338.991:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yJ/r/sCs_SFWyj76.js (71)
+[15948:28284:1220/030417.115:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y6/r/rZWR0gV5qvL.js (155)
