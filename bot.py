@@ -101,7 +101,7 @@ def abrir_grupo(driver, nome_grupo):
         print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
 # Configuração do WebDriver com Selenium
-chrome_driver_path = "C:/chromedriver/chromedriver.exe"
+chrome_driver_path = "/usr/local/bin/chromedriver"  # Caminho do ChromeDriver no contêiner Docker
 service = Service(chrome_driver_path)
 options = Options()
 
