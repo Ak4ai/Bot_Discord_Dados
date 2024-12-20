@@ -16,6 +16,7 @@ from selenium.common.exceptions import TimeoutException
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
     try:
@@ -100,26 +101,8 @@ def abrir_grupo(driver, nome_grupo):
     except Exception as e:
         print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
-def verificar_aba(driver):
-    try:
-        # Tenta acessar o título da aba para verificar se está funcional
-        driver.title
-        return True
-    except:
-        print("A aba travou. Tentando recarregar...")
-        driver.get("https://web.whatsapp.com/")
-        return False
-
-def verificar_sessao(driver):
-    try:
-        driver.find_element(By.CLASS_NAME, "landing-headerTitle")
-        print("Sessão inválida. Por favor, revalide manualmente.")
-        return False
-    except:
-        return True
-
 # Configuração do WebDriver com Selenium
-chrome_driver_path = "/usr/local/bin/chromedriver"  # Caminho do ChromeDriver no contêiner Docker
+chrome_driver_path = "/usr/local/bin/chromedriver"
 service = Service(chrome_driver_path)
 options = Options()
 
@@ -139,19 +122,10 @@ driver = webdriver.Chrome(service=service, options=options)
 # Navega para o WhatsApp Web
 driver.get("https://web.whatsapp.com")
 
-# ...existing code...
 # Espera até que a página do WhatsApp Web carregue completamente
-try:
-    WebDriverWait(driver, 120).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
-    )
-except TimeoutException:
-    print("Timeout while waiting for the WhatsApp Web page to load.")
-    print(driver.page_source)  # Print the page source for debugging
-    driver.save_screenshot("screenshot.png")  # Save a screenshot for debugging
-    driver.quit()
-    exit(1)
-# ...existing code...
+WebDriverWait(driver, 60).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
+)
 
 # Aguarda o login do usuário
 print("Faça Login Por Favor (apenas na primeira execução)")
@@ -168,12 +142,20 @@ sleep(5)  # Aguarda a página carregar
 nome_grupo = "Arquivos"
 abrir_grupo(driver, nome_grupo)
 
+def verificar_aba(driver):
+    try:
+        # Tenta acessar o título da aba para verificar se está funcional
+        driver.title
+        return True
+    except:
+        print("A aba travou. Tentando recarregar...")
+        driver.get("https://web.whatsapp.com/")
+        return False
+
 # Loop para monitorar as mensagens e reagir à última mensagem
 while True:
     if not verificar_aba(driver):
         continue
-    if not verificar_sessao(driver):
-        input("Revalide a sessão manualmente e pressione Enter para continuar...")
     resultado = verificar_ultima_mensagem(driver)
     if resultado is not None:
         enviar_mensagem(driver, str(resultado))

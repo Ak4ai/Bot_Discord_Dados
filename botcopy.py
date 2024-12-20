@@ -9,6 +9,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import re
 import os
+import logging
+from selenium.common.exceptions import TimeoutException
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -105,6 +112,10 @@ options.add_argument(f"user-data-dir={profile_path}")
 options.add_argument("--headless")  # Adiciona a opção headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-dev-shm-usage")  # Usa espaço em disco no lugar de memória
+options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
+options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
+options.add_argument("--headless=new")  # Executa sem interface gráfica
 
 driver = webdriver.Chrome(service=service, options=options)
 
@@ -131,9 +142,21 @@ sleep(5)  # Aguarda a página carregar
 nome_grupo = "Arquivos"
 abrir_grupo(driver, nome_grupo)
 
+def verificar_aba(driver):
+    try:
+        # Tenta acessar o título da aba para verificar se está funcional
+        driver.title
+        return True
+    except:
+        print("A aba travou. Tentando recarregar...")
+        driver.get("https://web.whatsapp.com/")
+        return False
+
 # Loop para monitorar as mensagens e reagir à última mensagem
 while True:
+    if not verificar_aba(driver):
+        continue
     resultado = verificar_ultima_mensagem(driver)
     if resultado is not None:
         enviar_mensagem(driver, str(resultado))
-    sleep(5)  # Atraso de 5 segundos entre as verificações
+    sleep(5)

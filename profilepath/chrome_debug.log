@@ -1,15 +1,11 @@
-[2228:21200:1220/035511.453:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[2228:21200:1220/035511.540:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[8544:27772:1220/035511.665:INFO:cpu_info.cc(53)] Available number of cores: 16
-[3472:27792:1220/035511.698:INFO:cpu_info.cc(53)] Available number of cores: 16
-[5312:14704:1220/035511.754:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[28576:29644:1220/035512.044:INFO:cpu_info.cc(53)] Available number of cores: 16
-[4808:27128:1220/035512.315:INFO:cpu_info.cc(53)] Available number of cores: 16
-[2228:21200:1220/035512.332:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y6/r/rZWR0gV5qvL.js (155)
-[2228:21200:1220/035516.659:INFO:CONSOLE(71)] "ErrorUtils caught an error:
-
-Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"553799546982@c.us","type":"in","isBusiness":false,"isEnterprise":false,"isSmb":false,"isContactSyncCompleted":0,"textStatusLastUpdateTime":-1,"syncToAddressbook":false},"showNotifyName":true,"elevatedP" (type=object,Object)
-
-Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yJ/r/sCs_SFWyj76.js (71)
-[2228:21200:1220/035519.798:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y6/r/rZWR0gV5qvL.js (155)
-[2228:21200:1220/035526.553:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[3528:18388:1220/185030.575:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[3528:18388:1220/185030.677:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[4188:26364:1220/185030.720:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[26108:5628:1220/185030.763:INFO:cpu_info.cc(53)] Available number of cores: 16
+[4188:26364:1220/185030.773:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[4188:26364:1220/185030.773:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[14748:9332:1220/185030.807:INFO:cpu_info.cc(53)] Available number of cores: 16
+[21460:2876:1220/185031.130:INFO:cpu_info.cc(53)] Available number of cores: 16
+[3528:18388:1220/185031.384:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y6/r/rZWR0gV5qvL.js (155)
+[27512:3508:1220/185031.410:INFO:cpu_info.cc(53)] Available number of cores: 16
+[3528:18388:1220/185038.220:ERROR:device_event_log_impl.cc(201)] [18:50:38.220] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Elemento não encontrado. (0x490)

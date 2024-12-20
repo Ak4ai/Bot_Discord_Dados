@@ -1,3 +1,6 @@
-2024/12/20-03:55:11.656 4250 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\shared_proto_db/MANIFEST-000001
-2024/12/20-03:55:11.657 4250 Recovering log #3
-2024/12/20-03:55:11.658 4250 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\shared_proto_db/000003.log 
+2024/12/20-18:50:30.757 18c Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\shared_proto_db/MANIFEST-000001
+2024/12/20-18:50:30.757 18c Recovering log #3
+2024/12/20-18:50:30.758 18c Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\shared_proto_db/000003.log 
+2024/12/20-18:50:38.321 18c Level-0 table #5: started
+2024/12/20-18:50:38.324 18c Level-0 table #5: 115209 bytes OK
+2024/12/20-18:50:38.326 18c Delete type=0 #3
