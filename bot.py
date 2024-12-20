@@ -115,7 +115,7 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-dev-shm-usage")  # Usa espaço em disco no lugar de memória
 options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
 options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
-options.add_argument("--headless=new")  # Executa sem interface gráfica
+options.add_argument("--headless=new")  # Esxecuta sem interface gráfica
 
 driver = webdriver.Chrome(service=service, options=options)
 
@@ -123,7 +123,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.get("https://web.whatsapp.com")
 
 # Espera até que a página do WhatsApp Web carregue completamente
-WebDriverWait(driver, 60).until(
+WebDriverWait(driver, 40).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
 )
 
