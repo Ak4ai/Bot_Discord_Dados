@@ -28,9 +28,27 @@ pip install --upgrade pip
 # Instalar as dependências do Python
 pip install -r requirements.txt
 
+# ...existing code...
+
 # Instalar o Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install -y ./google-chrome-stable_current_amd64.deb
+
+# Verificar a versão do Chrome
+google-chrome --version
+
+# Verificar a versão do ChromeDriver
+chromedriver --version
+
+# Baixar o ChromeDriver correspondente
+CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+wget -N https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip -d /usr/local/bin/
+chmod +x /usr/local/bin/chromedriver
+rm chromedriver_linux64.zip
+
+# Verificar a versão do ChromeDriver
+chromedriver --version
 
 # Iniciar o bot
 python bot.py
