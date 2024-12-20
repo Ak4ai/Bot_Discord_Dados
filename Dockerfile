@@ -22,7 +22,8 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libnss3 \
     libxtst6 \
-    libxrandr2 && \
+    libxrandr2 \
+    libxfixes3 && \
     rm -rf /var/lib/apt/lists/*
 
 # Instalar o Google Chrome
