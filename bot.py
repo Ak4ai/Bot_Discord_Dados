@@ -10,6 +10,7 @@ import random
 import re
 import os
 import logging
+from selenium.common.exceptions import TimeoutException
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -129,7 +130,7 @@ try:
             enviar_mensagem(driver, str(resultado))
         sleep(5)  # Atraso de 5 segundos entre as verificações
 
-except selenium.common.exceptions.TimeoutException as e:
+except TimeoutException as e:
     logger.error("TimeoutException: Elemento não encontrado dentro do tempo especificado")
     logger.error(e)
 
