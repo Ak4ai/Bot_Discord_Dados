@@ -9,6 +9,11 @@ from selenium.webdriver.support import expected_conditions as EC
 import random
 import re
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -128,7 +133,7 @@ while True:
 sleep(5)  # Aguarda a página carregar
 
 # Solicita o nome do grupo ao usuário
-nome_grupo = input("Digite o nome do grupo que deseja monitorar: ")
+nome_grupo = "Arquivos"
 abrir_grupo(driver, nome_grupo)
 
 # Loop para monitorar as mensagens e reagir à última mensagem
