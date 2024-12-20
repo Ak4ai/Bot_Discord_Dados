@@ -38,17 +38,17 @@ apt install -y ./google-chrome-stable_current_amd64.deb
 google-chrome --version
 
 # Verificar a versão do ChromeDriver
-chromedriver --version
+chromedriver --version || echo "The version of chrome cannot be detected. Trying with latest driver version"
 
 # Baixar o ChromeDriver correspondente
 CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
 wget -N https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
-unzip chromedriver_linux64.zip -d /usr/local/bin/
-chmod +x /usr/local/bin/chromedriver
+unzip chromedriver_linux64.zip -d ./chromedriver/
+chmod +x ./chromedriver/chromedriver
 rm chromedriver_linux64.zip
 
 # Verificar a versão do ChromeDriver
-chromedriver --version
+./chromedriver/chromedriver --version
 
 # Iniciar o bot
 python bot.py

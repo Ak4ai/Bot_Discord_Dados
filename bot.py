@@ -95,16 +95,8 @@ def abrir_grupo(driver, nome_grupo):
         print(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
 # Configuração do WebDriver com Selenium
-chrome_driver_path = os.getenv("CHROME_DRIVER", "/usr/bin/chromedriver")
-service = Service(chrome_driver_path)
-options = Options()
-
-# Diretório onde os dados do perfil do Chrome serão salvos
-profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
-options.add_argument(f"user-data-dir={profile_path}")
-options.add_argument("--headless")  # Adiciona a opção headless
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+service = Service('./chromedriver/chromedriver')
+options = webdriver.ChromeOptions()
 options.add_argument("--disable-gpu")  # Desabilita a GPU
 options.add_argument("--remote-debugging-port=9222")  # Porta para depuração remota
 
