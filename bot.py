@@ -110,6 +110,14 @@ def verificar_aba(driver):
         driver.get("https://web.whatsapp.com/")
         return False
 
+def verificar_sessao(driver):
+    try:
+        driver.find_element(By.CLASS_NAME, "landing-headerTitle")
+        print("Sessão inválida. Por favor, revalide manualmente.")
+        return False
+    except:
+        return True
+
 # Configuração do WebDriver com Selenium
 chrome_driver_path = "/usr/local/bin/chromedriver"  # Caminho do ChromeDriver no contêiner Docker
 service = Service(chrome_driver_path)
