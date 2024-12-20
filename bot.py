@@ -24,7 +24,7 @@ def verificar_ultima_mensagem(driver):
         if mensagens:
             # Obtém o texto da última mensagem
             ultima_mensagem = mensagens[-1].text
-            print(f"Última mensagem: {ultima_mensagem}")  # Log para depuração
+            logger.info(f"Última mensagem: {ultima_mensagem}")  # Log para depuração
 
             # Verifica se a mensagem segue o formato "/xdyh"
             match_highest = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)?", ultima_mensagem)
@@ -39,31 +39,19 @@ def verificar_ultima_mensagem(driver):
                     return f"Resultados: {resultados} | Maior Valor (com Modificador): {maior}"
 
             # Verifica se a mensagem segue o formato "/xdy"
-            match = re.match(r"(?i)(\d+)d(\d+)([+-]\d+)?", ultima_mensagem)
-            if match:
-                quantidade = int(match.group(1))
-                lados = int(match.group(2))
-                modificador = int(match.group(3)) if match.group(3) else 0
+            match_sum = re.match(r"(?i)(\d+)d(\d+)", ultima_mensagem)
+            if match_sum:
+                quantidade = int(match_sum.group(1))
+                lados = int(match_sum.group(2))
 
                 if quantidade > 0 and lados > 0:
                     resultados = [random.randint(1, lados) for _ in range(quantidade)]
-                    soma = sum(resultados) + modificador
-                    return f"Resultados: {resultados} | Modificador: {modificador} | Soma Total: {soma}"
+                    soma = sum(resultados)
+                    return f"Resultados: {resultados} | Soma: {soma}"
 
-            # Verifica se a mensagem segue o formato "/dx"
-            match_single = re.match(r"(?i)d(\d+)([+-]\d+)?", ultima_mensagem)
-            if match_single:
-                lados = int(match_single.group(1))
-                modificador = int(match_single.group(2)) if match_single.group(2) else 0
-
-                if lados > 0:
-                    resultado = random.randint(1, lados) + modificador
-                    return f"Resultado: {resultado} (com Modificador: {modificador})"
-
-        else:
-            print("Nenhuma mensagem encontrada.")
     except Exception as e:
-        print(f"Erro ao verificar a última mensagem: {e}")
+        logger.error(f"Erro ao verificar a última mensagem: {e}")
+
     return None
 
 # Função para enviar uma mensagem no WhatsApp Web
@@ -113,32 +101,39 @@ service = Service("/usr/local/bin/chromedriver")
 # Inicializar o driver
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-# Navega para o WhatsApp Web
-driver.get("https://web.whatsapp.com")
+try:
+    # Abre a URL do WhatsApp Web
+    driver.get("https://web.whatsapp.com")
+    logger.info("WhatsApp Web aberto")
 
-# Espera até que a página do WhatsApp Web carregue completamente
-WebDriverWait(driver, 20).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
-)
+    # Aguarda até que o QR code seja carregado
+    WebDriverWait(driver, 60).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "canvas[aria-label='Scan me!']"))
+    )
+    logger.info("QR code carregado")
 
-# Aguarda o login do usuário
-print("Faça Login Por Favor (apenas na primeira execução)")
-while True:
-    try:
-        # Verifica se o WhatsApp Web foi carregado corretamente
-        driver.find_element(By.CLASS_NAME, "landing-headerTitle")
-    except:
-        break
+    # Aguarda até que a página principal do WhatsApp Web seja carregada
+    WebDriverWait(driver, 300).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div[title='Search input textbox']"))
+    )
+    logger.info("Página principal do WhatsApp Web carregada")
 
-sleep(5)  # Aguarda a página carregar
+    # Solicita o nome do grupo ao usuário
+    nome_grupo = "Arquivos"
+    abrir_grupo(driver, nome_grupo)
 
-# Solicita o nome do grupo ao usuário
-nome_grupo = "Arquivos"
-abrir_grupo(driver, nome_grupo)
+    # Loop para monitorar as mensagens e reagir à última mensagem
+    while True:
+        resultado = verificar_ultima_mensagem(driver)
+        if resultado is not None:
+            enviar_mensagem(driver, str(resultado))
+        sleep(5)  # Atraso de 5 segundos entre as verificações
 
-# Loop para monitorar as mensagens e reagir à última mensagem
-while True:
-    resultado = verificar_ultima_mensagem(driver)
-    if resultado is not None:
-        enviar_mensagem(driver, str(resultado))
-    sleep(5)  # Atraso de 5 segundos entre as verificações
+except selenium.common.exceptions.TimeoutException as e:
+    logger.error("TimeoutException: Elemento não encontrado dentro do tempo especificado")
+    logger.error(e)
+
+finally:
+    # Fecha o WebDriver
+    driver.quit()
+    logger.info("WebDriver fechado")
