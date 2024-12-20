@@ -120,7 +120,7 @@ driver.get("https://web.whatsapp.com")
 # ...existing code...
 # Espera até que a página do WhatsApp Web carregue completamente
 try:
-    WebDriverWait(driver, 40).until(
+    WebDriverWait(driver, 120).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
     )
 except TimeoutException:
