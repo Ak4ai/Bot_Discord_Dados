@@ -17,9 +17,8 @@ from flask import Flask
 # Inicializar a aplicação Flask
 app = Flask(__name__)
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
