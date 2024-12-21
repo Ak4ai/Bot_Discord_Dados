@@ -1,3 +1,6 @@
-2024/12/20-18:49:02.608 6714 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
-2024/12/20-18:49:02.613 6714 Recovering log #13
-2024/12/20-18:49:02.614 6714 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/000013.log 
+2024/12/21-14:36:27.387 407c Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
+2024/12/21-14:36:27.391 407c Recovering log #13
+2024/12/21-14:36:27.392 407c Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/000013.log 
+2024/12/21-14:41:38.100 51e0 Level-0 table #17: started
+2024/12/21-14:41:38.105 51e0 Level-0 table #17: 13748 bytes OK
+2024/12/21-14:41:38.108 51e0 Delete type=0 #13
