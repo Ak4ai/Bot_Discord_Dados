@@ -20,11 +20,15 @@ logger = logging.getLogger(__name__)
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
     try:
+        # Localiza todas as mensagens visíveis na conversa
         mensagens = driver.find_elements(By.CSS_SELECTOR, "span.selectable-text")
+
         if mensagens:
+            # Obtém o texto da última mensagem
             ultima_mensagem = mensagens[-1].text
             logger.info(f"Última mensagem: {ultima_mensagem}")
 
+            # Verifica se a mensagem segue o formato "/xdyh"
             match_highest = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)?", ultima_mensagem)
             if match_highest:
                 quantidade = int(match_highest.group(1))
@@ -36,6 +40,7 @@ def verificar_ultima_mensagem(driver):
                     maior = max(resultados) + modificador
                     return f"Resultados: {resultados} | Maior Valor (com Modificador): {maior}"
 
+            # Verifica se a mensagem segue o formato "/xdy"
             match = re.match(r"(?i)(\d+)d(\d+)([+-]\d+)?", ultima_mensagem)
             if match:
                 quantidade = int(match.group(1))
@@ -47,6 +52,7 @@ def verificar_ultima_mensagem(driver):
                     soma = sum(resultados) + modificador
                     return f"Resultados: {resultados} | Modificador: {modificador} | Soma Total: {soma}"
 
+            # Verifica se a mensagem segue o formato "/dx"
             match_single = re.match(r"(?i)d(\d+)([+-]\d+)?", ultima_mensagem)
             if match_single:
                 lados = int(match_single.group(1))
@@ -56,7 +62,8 @@ def verificar_ultima_mensagem(driver):
                     resultado = random.randint(1, lados) + modificador
                     return f"Resultado: {resultado} (com Modificador: {modificador})"
 
-        logger.info("Nenhuma mensagem válida encontrada.")
+        else:
+            logger.info("Nenhuma mensagem encontrada.")
     except Exception as e:
         logger.error(f"Erro ao verificar a última mensagem: {e}")
     return None
@@ -64,6 +71,7 @@ def verificar_ultima_mensagem(driver):
 # Função para enviar uma mensagem no WhatsApp Web
 def enviar_mensagem(driver, mensagem):
     try:
+        # Espera até que a caixa de texto esteja visível
         caixa_texto = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="10"]'))
         )
@@ -76,13 +84,15 @@ def enviar_mensagem(driver, mensagem):
 # Função para buscar e abrir um grupo pelo nome
 def abrir_grupo(driver, nome_grupo):
     try:
+        # Espera até que a caixa de pesquisa esteja visível
         caixa_pesquisa = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
         )
         caixa_pesquisa.click()
         caixa_pesquisa.send_keys(nome_grupo + Keys.ENTER)
-        sleep(2)
+        sleep(2)  # Aguarda a lista de resultados carregar
 
+        # Seleciona o grupo na lista de resultados
         grupo = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, f"//span[@title='{nome_grupo}']"))
         )
@@ -91,74 +101,78 @@ def abrir_grupo(driver, nome_grupo):
     except Exception as e:
         logger.error(f"Erro ao abrir o grupo '{nome_grupo}': {e}")
 
+# Função para verificar se a aba está funcional
+def verificar_aba(driver):
+    try:
+        driver.title
+        return True
+    except WebDriverException:
+        logger.warning("A aba travou. Tentando recarregar...")
+        driver.get("https://web.whatsapp.com/")
+        return False
+
+# Função para garantir que o login seja feito novamente, se necessário
+def verificar_login(driver):
+    try:
+        WebDriverWait(driver, 80).until(
+            EC.presence_of_element_located((By.CLASS_NAME, "landing-headerTitle"))
+        )
+        logger.info("Requer login. Aguardando...")
+        sleep(10)  # Tempo para o usuário escanear o QR Code
+        return True
+    except TimeoutException:
+        logger.info("Já logado no WhatsApp Web.")
+        return False
+
 # Configuração do WebDriver com Selenium
 chrome_driver_path = "/usr/local/bin/chromedriver" if os.name != 'nt' else "C://chromedriver/chromedriver.exe"
 service = Service(chrome_driver_path)
 options = Options()
 
-profile_path = os.path.join(os.path.dirname(__file__), "profilepath")
+# Diretório onde os dados do perfil do Chrome serão salvos
+profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
 options.add_argument(f"user-data-dir={profile_path}")
-options.add_argument("--headless")
+options.add_argument("--headless")  # Adiciona a opção headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-extensions")
 options.add_argument("--blink-settings=imagesEnabled=false")
-options.add_argument("--disable-gpu")
-options.add_argument("--disable-software-rasterizer")
-options.add_argument("--headless=new")
-options.add_argument("--start-maximized")  # Reduz travamentos no modo headless
-options.add_argument("--disable-notifications")  # Previne notificações do navegador
-
-# Ajuste do número máximo de conexões
-os.environ['MAX_CONNECTIONS'] = "5"  # Limita conexões paralelas
+options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
+options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
+options.add_argument("--headless=new")  # Executa sem interface gráfica
 
 driver = webdriver.Chrome(service=service, options=options)
-
-# Função para recarregar automaticamente o site
-def auto_reload(driver):
-    try:
-        driver.refresh()
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
-        )
-        logger.info("Página recarregada com sucesso.")
-    except Exception as e:
-        logger.error(f"Erro ao recarregar a página: {e}")
 
 # Navega para o WhatsApp Web
 driver.get("https://web.whatsapp.com")
 
-WebDriverWait(driver, 60).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
-)
+# Espera até que a página do WhatsApp Web carregue completamente
+verificar_login(driver)
 
+# Aguarda o login do usuário
 logger.info("Faça Login Por Favor (apenas na primeira execução)")
 while True:
     try:
+        # Verifica se o WhatsApp Web foi carregado corretamente
         driver.find_element(By.CLASS_NAME, "landing-headerTitle")
     except:
         break
 
-sleep(5)
+sleep(5)  # Aguarda a página carregar
 
+# Solicita o nome do grupo ao usuário
 nome_grupo = "Arquivos"
 abrir_grupo(driver, nome_grupo)
 
-# Verifica se a aba está funcional
-def verificar_aba(driver):
-    try:
-        driver.title
-        return True
-    except:
-        logger.warning("A aba travou. Tentando recarregar...")
-        auto_reload(driver)
-        return False
-
-# Loop otimizado para monitorar mensagens
+# Loop para monitorar as mensagens e reagir à última mensagem
 while True:
     if not verificar_aba(driver):
+        verificar_login(driver)
+        abrir_grupo(driver, nome_grupo)
         continue
+
     resultado = verificar_ultima_mensagem(driver)
     if resultado is not None:
         enviar_mensagem(driver, str(resultado))
-    sleep(10)  # Intervalo aumentado para reduzir uso de CPU
+
+    sleep(5)

@@ -1,11 +1,8 @@
-[25332:22396:1221/153657.709:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[25332:22396:1221/153657.768:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[27612:6900:1221/153657.819:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[10784:8404:1221/153657.872:INFO:cpu_info.cc(53)] Available number of cores: 16
-[27612:6900:1221/153657.881:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[27612:6900:1221/153657.881:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[6524:12600:1221/153657.926:INFO:cpu_info.cc(53)] Available number of cores: 16
-[20404:23412:1221/153658.220:INFO:cpu_info.cc(53)] Available number of cores: 16
-[25332:22396:1221/153658.515:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
-[10676:29400:1221/153658.537:INFO:cpu_info.cc(53)] Available number of cores: 16
-[25332:22396:1221/153704.238:ERROR:device_event_log_impl.cc(201)] [15:37:04.239] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Elemento não encontrado. (0x490)
+[20776:14740:1221/154732.493:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[20776:14740:1221/154732.540:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[16700:24924:1221/154732.634:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[16700:24924:1221/154732.670:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[16700:24924:1221/154732.672:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[20776:14740:1221/154733.315:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[20776:14740:1221/154740.031:ERROR:device_event_log_impl.cc(201)] [15:47:40.036] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Elemento não encontrado. (0x490)
+[20776:14740:1221/154740.865:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
