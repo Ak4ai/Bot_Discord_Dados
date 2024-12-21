@@ -98,14 +98,14 @@ options = Options()
 
 profile_path = os.path.join(os.path.dirname(__file__), "profilepath")
 options.add_argument(f"user-data-dir={profile_path}")
-options.add_argument("--headless")
+#options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-extensions")
 options.add_argument("--blink-settings=imagesEnabled=false")
 options.add_argument("--disable-gpu")
 options.add_argument("--disable-software-rasterizer")
-options.add_argument("--headless=new")
+#options.add_argument("--headless=new")
 options.add_argument("--start-maximized")  # Reduz travamentos no modo headless
 options.add_argument("--disable-notifications")  # Previne notificações do navegador
 
@@ -118,7 +118,7 @@ driver = webdriver.Chrome(service=service, options=options)
 def auto_reload(driver):
     try:
         driver.refresh()
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
         )
         logger.info("Página recarregada com sucesso.")
@@ -128,7 +128,7 @@ def auto_reload(driver):
 # Navega para o WhatsApp Web
 driver.get("https://web.whatsapp.com")
 
-WebDriverWait(driver, 120).until(
+WebDriverWait(driver, 60).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, 'div[contenteditable="true"][data-tab="3"]'))
 )
 
