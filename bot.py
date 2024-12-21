@@ -13,11 +13,13 @@ import logging
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
 from flask import Flask
+import threading
+
 
 # Inicializar a aplicação Flask
 app = Flask(__name__)
 
-if __name__ == "__main__":
+def run_flask():
     app.run(host="0.0.0.0", port=5000)
 
 # Configure logging
@@ -74,6 +76,10 @@ def verificar_ultima_mensagem(driver):
     except Exception as e:
         logger.error(f"Erro ao verificar a última mensagem: {e}")
     return None
+
+if __name__ == "__main__":
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.start()
 
 # Função para enviar uma mensagem no WhatsApp Web
 def enviar_mensagem(driver, mensagem):

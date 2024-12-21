@@ -1,11 +1,13 @@
-[26940:5076:1221/184113.297:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[26940:5076:1221/184113.371:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[10644:8744:1221/184113.412:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[3028:15808:1221/184113.475:INFO:cpu_info.cc(53)] Available number of cores: 16
-[10644:8744:1221/184113.483:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[10644:8744:1221/184113.483:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[29340:27952:1221/184113.516:INFO:cpu_info.cc(53)] Available number of cores: 16
-[888:4372:1221/184113.872:INFO:cpu_info.cc(53)] Available number of cores: 16
-[26940:5076:1221/184114.144:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
-[27892:21712:1221/184114.160:INFO:cpu_info.cc(53)] Available number of cores: 16
-[26940:5076:1221/184118.350:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[28572:27900:1221/190737.465:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[28572:27900:1221/190737.526:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[27136:6296:1221/190737.590:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[12616:28480:1221/190737.644:INFO:cpu_info.cc(53)] Available number of cores: 16
+[27136:6296:1221/190737.649:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[27136:6296:1221/190737.649:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[29368:20592:1221/190737.768:INFO:cpu_info.cc(53)] Available number of cores: 16
+[29216:24992:1221/190738.015:INFO:cpu_info.cc(53)] Available number of cores: 16
+[11576:27716:1221/190738.242:INFO:cpu_info.cc(53)] Available number of cores: 16
+[28572:27900:1221/190738.287:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[28572:27900:1221/190742.529:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[28572:27900:1221/190745.870:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[28572:27900:1221/190747.537:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
