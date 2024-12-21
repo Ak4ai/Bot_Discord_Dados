@@ -1,14 +1,26 @@
-[21480:10304:1221/174146.845:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[21480:10304:1221/174147.311:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[10260:6008:1221/174147.625:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[10884:25784:1221/174148.019:INFO:cpu_info.cc(53)] Available number of cores: 16
-[10260:6008:1221/174148.190:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[10260:6008:1221/174148.190:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[13508:18200:1221/174148.428:INFO:cpu_info.cc(53)] Available number of cores: 16
-[2168:12876:1221/174148.714:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21480:10304:1221/174149.202:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
-[5132:26436:1221/174149.855:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21480:10304:1221/174152.231:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[21480:10304:1221/174157.238:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[21480:10304:1221/174202.238:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
-[21480:10304:1221/174204.466:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[4448:2892:1221/182127.737:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[4448:2892:1221/182128.262:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[12428:4600:1221/182129.069:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[24084:896:1221/182129.782:INFO:cpu_info.cc(53)] Available number of cores: 16
+[12428:4600:1221/182130.892:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[12428:4600:1221/182130.892:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[25324:25016:1221/182131.319:INFO:cpu_info.cc(53)] Available number of cores: 16
+[4448:2892:1221/182131.775:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[12224:9988:1221/182131.936:INFO:cpu_info.cc(53)] Available number of cores: 16
+[24796:10924:1221/182132.626:INFO:cpu_info.cc(53)] Available number of cores: 16
+[4448:2892:1221/182133.175:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182138.173:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182143.180:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182148.183:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182153.184:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182156.492:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[4448:2892:1221/182203.199:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182233.241:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182243.257:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182248.258:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182253.262:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182258.263:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182303.277:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182308.291:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182313.300:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[4448:2892:1221/182318.311:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0

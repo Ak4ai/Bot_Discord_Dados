@@ -12,7 +12,6 @@ import os
 import logging
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
-from flask import Flask
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
