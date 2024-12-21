@@ -1,15 +1,15 @@
-2024/12/21-15:29:56.465 3880 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/12/21-15:29:56.466 3880 Recovering log #1812
-2024/12/21-15:29:56.473 3880 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001812.log 
-2024/12/21-15:29:56.708 16e8 Level-0 table #1818: started
-2024/12/21-15:29:56.715 16e8 Level-0 table #1818: 280048 bytes OK
-2024/12/21-15:29:56.716 16e8 Delete type=0 #1812
-2024/12/21-15:29:56.716 8758 Manual compaction at level-0 from '\x00\xf1\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xf2\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/12/21-15:29:57.628 3880 Compacting 1@1 + 2@2 files
-2024/12/21-15:29:57.661 3880 Generated table #1819@1: 39258 keys, 2201760 bytes
-2024/12/21-15:29:57.687 3880 Generated table #1820@1: 37559 keys, 1596104 bytes
-2024/12/21-15:29:57.687 3880 Compacted 1@1 + 2@2 files => 3797864 bytes
-2024/12/21-15:29:57.688 3880 compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/12/21-15:29:57.688 3880 Delete type=2 #1814
-2024/12/21-15:29:57.688 3880 Delete type=2 #1815
-2024/12/21-15:29:57.688 3880 Delete type=2 #1818
+2024/12/21-15:36:58.536 80cc Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/21-15:36:58.537 80cc Recovering log #1822
+2024/12/21-15:36:58.541 80cc Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001822.log 
+2024/12/21-15:36:58.790 20e0 Level-0 table #1828: started
+2024/12/21-15:36:58.793 20e0 Level-0 table #1828: 204224 bytes OK
+2024/12/21-15:36:58.795 20e0 Delete type=0 #1822
+2024/12/21-15:36:58.795 80cc Manual compaction at level-0 from '\x00\xf3\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xf4\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/12/21-15:36:59.697 2f24 Compacting 1@1 + 2@2 files
+2024/12/21-15:36:59.734 2f24 Generated table #1829@1: 44713 keys, 2207316 bytes
+2024/12/21-15:36:59.763 2f24 Generated table #1830@1: 38661 keys, 1915857 bytes
+2024/12/21-15:36:59.763 2f24 Compacted 1@1 + 2@2 files => 4123173 bytes
+2024/12/21-15:36:59.764 2f24 compacted to: files[ 0 0 2 0 0 0 0 ]
+2024/12/21-15:36:59.764 2f24 Delete type=2 #1824
+2024/12/21-15:36:59.764 2f24 Delete type=2 #1825
+2024/12/21-15:36:59.764 2f24 Delete type=2 #1828

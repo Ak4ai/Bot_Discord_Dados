@@ -98,14 +98,14 @@ options = Options()
 
 profile_path = os.path.join(os.path.dirname(__file__), "profilepath")
 options.add_argument(f"user-data-dir={profile_path}")
-#options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-extensions")
 options.add_argument("--blink-settings=imagesEnabled=false")
 options.add_argument("--disable-gpu")
 options.add_argument("--disable-software-rasterizer")
-#options.add_argument("--headless=new")
+options.add_argument("--headless=new")
 options.add_argument("--start-maximized")  # Reduz travamentos no modo headless
 options.add_argument("--disable-notifications")  # Previne notificações do navegador
 
