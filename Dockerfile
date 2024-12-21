@@ -41,6 +41,9 @@ RUN wget -q https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.
 WORKDIR /app
 COPY . .
 
+# Exponha a porta que o Flask está usando
+EXPOSE 5000
+
 # Instalar dependências Python
 RUN pip install --no-cache-dir -r requirements.txt
 
