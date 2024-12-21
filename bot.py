@@ -11,11 +11,11 @@ import re
 import os
 import logging
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import WebDriverException
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -112,7 +112,8 @@ options.add_argument(f"user-data-dir={profile_path}")
 options.add_argument("--headless")  # Adiciona a opção headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-dev-shm-usage")  # Usa espaço em disco no lugar de memória
+options.add_argument("--disable-extensions")
+options.add_argument("--blink-settings=imagesEnabled=false")
 options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
 options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
 options.add_argument("--headless=new")  # Esxecuta sem interface gráfica
@@ -160,3 +161,11 @@ while True:
     if resultado is not None:
         enviar_mensagem(driver, str(resultado))
     sleep(5)
+
+try:
+    driver.title
+except WebDriverException:
+    driver.quit()
+    driver = webdriver.Chrome(options=options)
+    # Recarregar a página
+    driver.get("https://web.whatsapp.com")
