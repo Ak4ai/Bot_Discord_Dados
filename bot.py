@@ -12,6 +12,14 @@ import os
 import logging
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
+from flask import Flask
+
+# Inicializar a aplicação Flask
+app = Flask(__name__)
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -176,10 +184,3 @@ while True:
         enviar_mensagem(driver, str(resultado))
 
     sleep(5)
-
-app = Flask(__name__)
-
-# Suas rotas e lógica aqui
-
-if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000)

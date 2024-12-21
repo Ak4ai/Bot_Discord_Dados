@@ -1,15 +1,16 @@
-2024/12/21-17:41:49.262 1e8c Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/12/21-17:41:49.264 1e8c Recovering log #1837
-2024/12/21-17:41:49.313 1e8c Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001837.log 
-2024/12/21-17:41:51.025 1e8c Level-0 table #1843: started
-2024/12/21-17:41:51.050 1e8c Level-0 table #1843: 713283 bytes OK
-2024/12/21-17:41:51.052 1e8c Delete type=0 #1837
-2024/12/21-17:41:51.057 1e8c Manual compaction at level-0 from '\x00\xf6\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xf7\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/12/21-17:41:53.528 4f7c Compacting 1@1 + 2@2 files
-2024/12/21-17:41:53.694 4f7c Generated table #1844@1: 47859 keys, 2212190 bytes
-2024/12/21-17:41:53.816 4f7c Generated table #1845@1: 40484 keys, 2084593 bytes
-2024/12/21-17:41:53.816 4f7c Compacted 1@1 + 2@2 files => 4296783 bytes
-2024/12/21-17:41:53.818 4f7c compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/12/21-17:41:53.818 4f7c Delete type=2 #1839
-2024/12/21-17:41:53.819 4f7c Delete type=2 #1840
-2024/12/21-17:41:53.819 4f7c Delete type=2 #1843
+2024/12/21-18:21:31.821 52a8 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/21-18:21:31.822 52a8 Recovering log #1842
+2024/12/21-18:21:31.869 52a8 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001842.log 
+2024/12/21-18:21:34.465 22ac Level-0 table #1848: started
+2024/12/21-18:21:34.801 22ac Level-0 table #1848: 942767 bytes OK
+2024/12/21-18:21:34.808 22ac Delete type=0 #1842
+2024/12/21-18:21:34.815 22ac Manual compaction at level-0 from '\x00\xf7\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xf8\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/12/21-18:21:40.158 52a8 Compacting 1@1 + 2@2 files
+2024/12/21-18:21:40.502 52a8 Generated table #1849@1: 48838 keys, 2212825 bytes
+2024/12/21-18:21:40.652 52a8 Generated table #1850@1: 41470 keys, 2200237 bytes
+2024/12/21-18:21:40.657 52a8 Generated table #1851@1: 1070 keys, 24694 bytes
+2024/12/21-18:21:40.658 52a8 Compacted 1@1 + 2@2 files => 4437756 bytes
+2024/12/21-18:21:40.659 52a8 compacted to: files[ 0 0 3 0 0 0 0 ]
+2024/12/21-18:21:40.660 52a8 Delete type=2 #1844
+2024/12/21-18:21:40.661 52a8 Delete type=2 #1845
+2024/12/21-18:21:40.661 52a8 Delete type=2 #1848
