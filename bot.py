@@ -161,7 +161,7 @@ while True:
 sleep(5)  # Aguarda a página carregar
 
 # Solicita o nome do grupo ao usuário
-nome_grupo = "Arquivos"
+nome_grupo = "bitcholas"
 abrir_grupo(driver, nome_grupo)
 
 # Loop para monitorar as mensagens e reagir à última mensagem
