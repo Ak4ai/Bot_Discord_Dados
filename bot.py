@@ -77,10 +77,6 @@ def verificar_ultima_mensagem(driver):
         logger.error(f"Erro ao verificar a última mensagem: {e}")
     return None
 
-if __name__ == "__main__":
-    flask_thread = threading.Thread(target=run_flask)
-    flask_thread.start()
-
 # Função para enviar uma mensagem no WhatsApp Web
 def enviar_mensagem(driver, mensagem):
     try:
@@ -117,11 +113,17 @@ def abrir_grupo(driver, nome_grupo):
 # Função para verificar se a aba está funcional
 def verificar_aba(driver):
     try:
-        driver.title
+        driver.find_element(By.CSS_SELECTOR, "div[data-tab='3']")
         return True
-    except WebDriverException:
-        logger.warning("A aba travou. Tentando recarregar...")
-        driver.get("https://web.whatsapp.com/")
+    except (WebDriverException, TimeoutException):
+        return False
+
+def recarregar_pagina(driver):
+    try:
+        driver.refresh()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "div[data-tab='3']")))
+        return True
+    except (WebDriverException, TimeoutException):
         return False
 
 # Função para garantir que o login seja feito novamente, se necessário
@@ -137,55 +139,70 @@ def verificar_login(driver):
         logger.info("Já logado no WhatsApp Web.")
         return False
 
-# Configuração do WebDriver com Selenium
-chrome_driver_path = "/usr/local/bin/chromedriver" if os.name != 'nt' else "C://chromedriver/chromedriver.exe"
-service = Service(chrome_driver_path)
-options = Options()
+def iniciar_driver():
+    chrome_driver_path = "/usr/local/bin/chromedriver" if os.name != 'nt' else "C://chromedriver/chromedriver.exe"
+    service = Service(chrome_driver_path)
+    options = Options()
 
-# Diretório onde os dados do perfil do Chrome serão salvos
-profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
-options.add_argument(f"user-data-dir={profile_path}")
-options.add_argument("--headless")  # Adiciona a opção headless
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-extensions")
-options.add_argument("--blink-settings=imagesEnabled=false")
-options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
-options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
-options.add_argument("--headless=new")  # Executa sem interface gráfica
+    # Diretório onde os dados do perfil do Chrome serão salvos
+    profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
+    options.add_argument(f"user-data-dir={profile_path}")
+    #options.add_argument("--headless")  # Adiciona a opção headless
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--blink-settings=imagesEnabled=false")
+    options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
+    options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
+    #options.add_argument("--headless=new")  # Executa sem interface gráfica
 
-driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(service=service, options=options)
+    driver.get("https://web.whatsapp.com")
 
-# Navega para o WhatsApp Web
-driver.get("https://web.whatsapp.com")
+    # Espera até que a página do WhatsApp Web carregue completamente
+    verificar_login(driver)
 
-# Espera até que a página do WhatsApp Web carregue completamente
-verificar_login(driver)
+    # Aguarda o login do usuário
+    logger.info("Faça Login Por Favor (apenas na primeira execução)")
+    while True:
+        try:
+            # Verifica se o WhatsApp Web foi carregado corretamente
+            driver.find_element(By.CLASS_NAME, "landing-headerTitle")
+        except:
+            break
 
-# Aguarda o login do usuário
-logger.info("Faça Login Por Favor (apenas na primeira execução)")
-while True:
+    sleep(5)  # Aguarda a página carregar
+    return driver
+
+if __name__ == "__main__":
+    driver = iniciar_driver()
+    threading.Thread(target=run_flask).start()
+
+    # Solicita o nome do grupo ao usuário
+    nome_grupo = "Arquivos"
+    abrir_grupo(driver, nome_grupo)
+
     try:
-        # Verifica se o WhatsApp Web foi carregado corretamente
-        driver.find_element(By.CLASS_NAME, "landing-headerTitle")
-    except:
-        break
+        while True:
+            if not verificar_aba(driver):
+                logger.warning("Aba do WhatsApp não está funcional. Tentando recarregar a página.")
+                if not recarregar_pagina(driver):
+                    logger.error("Falha ao recarregar a página. Reiniciando o WebDriver.")
+                    driver.quit()
+                    driver = iniciar_driver()
+                    abrir_grupo(driver, nome_grupo)  # Reabre o grupo após reiniciar o WebDriver
+                    continue
 
-sleep(5)  # Aguarda a página carregar
+            # Chame a função para verificar a última mensagem
+            resultado = verificar_ultima_mensagem(driver)
+            if resultado is not None:
+                enviar_mensagem(driver, str(resultado))
 
-# Solicita o nome do grupo ao usuário
-nome_grupo = "bitcholas"
-abrir_grupo(driver, nome_grupo)
+            sleep(5)  # Ajuste o tempo de espera conforme necessário
 
-# Loop para monitorar as mensagens e reagir à última mensagem
-while True:
-    if not verificar_aba(driver):
-        verificar_login(driver)
-        abrir_grupo(driver, nome_grupo)
-        continue
-
-    resultado = verificar_ultima_mensagem(driver)
-    if resultado is not None:
-        enviar_mensagem(driver, str(resultado))
-
-    sleep(5)
+    except KeyboardInterrupt:
+        logger.info("Interrupção manual detectada. Encerrando o bot.")
+    except Exception as e:
+        logger.error(f"Erro inesperado: {e}")
+    finally:
+        driver.quit()

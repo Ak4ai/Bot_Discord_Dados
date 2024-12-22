@@ -1,17 +1,17 @@
-2024/12/21-18:41:14.154 31d0 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/12/21-18:41:14.155 31d0 Recovering log #1847
-2024/12/21-18:41:14.170 31d0 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001847.log 
-2024/12/21-18:41:15.360 31d0 Level-0 table #1854: started
-2024/12/21-18:41:15.372 31d0 Level-0 table #1854: 720400 bytes OK
-2024/12/21-18:41:15.373 31d0 Delete type=0 #1847
-2024/12/21-18:41:15.374 31d0 Manual compaction at level-0 from '\x00\xf8\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xf9\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/12/21-18:41:16.266 ccc Compacting 1@1 + 3@2 files
-2024/12/21-18:41:16.332 ccc Generated table #1855@1: 49258 keys, 2212987 bytes
-2024/12/21-18:41:16.365 ccc Generated table #1856@1: 39342 keys, 2199784 bytes
-2024/12/21-18:41:16.368 ccc Generated table #1857@1: 5026 keys, 105781 bytes
-2024/12/21-18:41:16.369 ccc Compacted 1@1 + 3@2 files => 4518552 bytes
-2024/12/21-18:41:16.369 ccc compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/12/21-18:41:16.370 ccc Delete type=2 #1849
-2024/12/21-18:41:16.370 ccc Delete type=2 #1850
-2024/12/21-18:41:16.370 ccc Delete type=2 #1851
-2024/12/21-18:41:16.370 ccc Delete type=2 #1854
+2024/12/22-14:25:16.196 3720 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/22-14:25:16.197 3720 Recovering log #1906
+2024/12/22-14:25:16.221 3720 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001906.log 
+2024/12/22-14:25:17.436 3720 Level-0 table #1913: started
+2024/12/22-14:25:17.456 3720 Level-0 table #1913: 1260793 bytes OK
+2024/12/22-14:25:17.457 3720 Delete type=0 #1906
+2024/12/22-14:25:17.458 3720 Manual compaction at level-0 from ' \x02\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x03\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/12/22-14:25:18.295 2f5c Compacting 1@1 + 3@2 files
+2024/12/22-14:25:18.335 2f5c Generated table #1914@1: 51418 keys, 2217083 bytes
+2024/12/22-14:25:18.363 2f5c Generated table #1915@1: 28319 keys, 2191513 bytes
+2024/12/22-14:25:18.375 2f5c Generated table #1916@1: 28217 keys, 693938 bytes
+2024/12/22-14:25:18.375 2f5c Compacted 1@1 + 3@2 files => 5102534 bytes
+2024/12/22-14:25:18.376 2f5c compacted to: files[ 0 0 3 0 0 0 0 ]
+2024/12/22-14:25:18.377 2f5c Delete type=2 #1908
+2024/12/22-14:25:18.377 2f5c Delete type=2 #1909
+2024/12/22-14:25:18.377 2f5c Delete type=2 #1910
+2024/12/22-14:25:18.377 2f5c Delete type=2 #1913
