@@ -1,6 +1,13 @@
-[24824:11764:1222/142757.702:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
-[24824:11764:1222/142757.749:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[18100:1876:1222/142757.844:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[18100:1876:1222/142757.892:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[18100:1876:1222/142757.893:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[24824:11764:1222/142758.487:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[10904:30188:1222/163409.255:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.205 (not a warning)
+[10904:30188:1222/163409.337:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[14188:15520:1222/163409.419:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[24472:28332:1222/163409.456:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14188:15520:1222/163409.468:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[14188:15520:1222/163409.468:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[10752:5476:1222/163409.498:INFO:cpu_info.cc(53)] Available number of cores: 16
+[16616:26480:1222/163410.033:INFO:cpu_info.cc(53)] Available number of cores: 16
+[10904:30188:1222/163410.398:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[26476:27720:1222/163410.417:INFO:cpu_info.cc(53)] Available number of cores: 16
+[10904:30188:1222/163414.330:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[10904:30188:1222/163418.309:INFO:CONSOLE(155)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y4/r/9cLzw6OK-kQ.js (155)
+[10904:30188:1222/163419.334:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
