@@ -147,14 +147,14 @@ def iniciar_driver():
     # Diretório onde os dados do perfil do Chrome serão salvos
     profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
     options.add_argument(f"user-data-dir={profile_path}")
-    #options.add_argument("--headless")  # Adiciona a opção headless
+    options.add_argument("--headless")  # Adiciona a opção headless
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
     options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
-    #options.add_argument("--headless=new")  # Executa sem interface gráfica
+    options.add_argument("--headless=new")  # Executa sem interface gráfica
 
     driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://web.whatsapp.com")
