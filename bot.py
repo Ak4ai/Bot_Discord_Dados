@@ -179,7 +179,7 @@ if __name__ == "__main__":
     threading.Thread(target=run_flask).start()
 
     # Solicita o nome do grupo ao usuário
-    nome_grupo = "Arquivos"
+    nome_grupo = input("Digite o nome do grupo: ")
     abrir_grupo(driver, nome_grupo)
 
     try:
