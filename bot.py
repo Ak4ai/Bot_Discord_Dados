@@ -12,15 +12,6 @@ import os
 import logging
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
-from flask import Flask
-import threading
-
-
-# Inicializar a aplicação Flask
-app = Flask(__name__)
-
-def run_flask():
-    app.run(host="0.0.0.0", port=5000)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -129,7 +120,7 @@ def recarregar_pagina(driver):
 # Função para garantir que o login seja feito novamente, se necessário
 def verificar_login(driver):
     try:
-        WebDriverWait(driver, 80).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.CLASS_NAME, "landing-headerTitle"))
         )
         logger.info("Requer login. Aguardando...")
@@ -176,7 +167,6 @@ def iniciar_driver():
 
 if __name__ == "__main__":
     driver = iniciar_driver()
-    threading.Thread(target=run_flask).start()
 
     # Solicita o nome do grupo ao usuário
     nome_grupo = input("Digite o nome do grupo: ")
@@ -197,8 +187,8 @@ if __name__ == "__main__":
             resultado = verificar_ultima_mensagem(driver)
             if resultado is not None:
                 enviar_mensagem(driver, str(resultado))
-
-            sleep(5)  # Ajuste o tempo de espera conforme necessário
+                
+            sleep(1)  # Aguarda 1 segundo antes de verificar novamente
 
     except KeyboardInterrupt:
         logger.info("Interrupção manual detectada. Encerrando o bot.")

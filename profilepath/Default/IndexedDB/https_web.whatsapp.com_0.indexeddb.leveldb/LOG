@@ -1,54 +1,20 @@
-2024/12/22-16:34:10.412 3724 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/12/22-16:34:10.413 3724 Recovering log #1918
-2024/12/22-16:34:10.421 3724 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001918.log 
-2024/12/22-16:34:11.691 3724 Level-0 table #1925: started
-2024/12/22-16:34:11.697 3724 Level-0 table #1925: 325834 bytes OK
-2024/12/22-16:34:11.698 3724 Delete type=0 #1918
-2024/12/22-16:34:11.699 3724 Manual compaction at level-0 from ' \x04\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x05\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/12/22-16:34:12.552 32ac Compacting 1@1 + 3@2 files
-2024/12/22-16:34:12.590 32ac Generated table #1926@1: 52822 keys, 2220667 bytes
-2024/12/22-16:34:12.618 32ac Generated table #1927@1: 28781 keys, 2193786 bytes
-2024/12/22-16:34:12.630 32ac Generated table #1928@1: 28368 keys, 746569 bytes
-2024/12/22-16:34:12.630 32ac Compacted 1@1 + 3@2 files => 5161022 bytes
-2024/12/22-16:34:12.631 32ac compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/12/22-16:34:12.631 32ac Delete type=2 #1920
-2024/12/22-16:34:12.631 32ac Delete type=2 #1921
-2024/12/22-16:34:12.631 32ac Delete type=2 #1922
-2024/12/22-16:34:12.631 32ac Delete type=2 #1925
-2024/12/22-16:34:15.144 32ac Level-0 table #1930: started
-2024/12/22-16:34:15.158 32ac Level-0 table #1930: 1066665 bytes OK
-2024/12/22-16:34:15.160 32ac Delete type=0 #1924
-2024/12/22-16:34:15.160 32ac Compacting 1@1 + 3@2 files
-2024/12/22-16:34:15.201 32ac Generated table #1931@1: 54297 keys, 2220293 bytes
-2024/12/22-16:34:15.232 32ac Generated table #1932@1: 31232 keys, 2199315 bytes
-2024/12/22-16:34:15.248 32ac Generated table #1933@1: 30595 keys, 980981 bytes
-2024/12/22-16:34:15.248 32ac Compacted 1@1 + 3@2 files => 5400589 bytes
-2024/12/22-16:34:15.249 32ac compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/12/22-16:34:15.249 32ac Delete type=2 #1926
-2024/12/22-16:34:15.249 32ac Delete type=2 #1927
-2024/12/22-16:34:15.249 32ac Delete type=2 #1928
-2024/12/22-16:34:15.249 32ac Delete type=2 #1930
-2024/12/22-16:34:57.614 32ac Level-0 table #1935: started
-2024/12/22-16:34:57.677 32ac Level-0 table #1935: 1013438 bytes OK
-2024/12/22-16:34:57.680 32ac Delete type=0 #1929
-2024/12/22-16:35:14.014 32ac Compacting 1@1 + 3@2 files
-2024/12/22-16:35:14.062 32ac Generated table #1936@1: 54246 keys, 2219991 bytes
-2024/12/22-16:35:14.101 32ac Generated table #1937@1: 32555 keys, 2202138 bytes
-2024/12/22-16:35:14.119 32ac Generated table #1938@1: 30792 keys, 1044725 bytes
-2024/12/22-16:35:14.120 32ac Compacted 1@1 + 3@2 files => 5466854 bytes
-2024/12/22-16:35:14.121 32ac compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/12/22-16:35:14.121 32ac Delete type=2 #1931
-2024/12/22-16:35:14.121 32ac Delete type=2 #1932
-2024/12/22-16:35:14.121 32ac Delete type=2 #1933
-2024/12/22-16:35:14.121 32ac Delete type=2 #1935
-2024/12/22-16:35:39.688 32ac Level-0 table #1940: started
-2024/12/22-16:35:39.712 32ac Level-0 table #1940: 1018639 bytes OK
-2024/12/22-16:35:39.715 32ac Delete type=0 #1934
-2024/12/22-16:35:39.717 32ac Compacting 1@1 + 2@2 files
-2024/12/22-16:35:39.758 32ac Generated table #1941@1: 54335 keys, 2221368 bytes
-2024/12/22-16:35:39.800 32ac Generated table #1942@1: 31490 keys, 2161355 bytes
-2024/12/22-16:35:39.800 32ac Compacted 1@1 + 2@2 files => 4382723 bytes
-2024/12/22-16:35:39.803 32ac compacted to: files[ 0 0 3 0 0 0 0 ]
-2024/12/22-16:35:39.803 32ac Delete type=2 #1936
-2024/12/22-16:35:39.804 32ac Delete type=2 #1937
-2024/12/22-16:35:39.804 32ac Delete type=2 #1940
+2025/01/08-15:13:30.937 43ac Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/01/08-15:13:30.938 43ac Recovering log #2022
+2025/01/08-15:13:30.942 43ac Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/002022.log 
+2025/01/08-15:13:32.367 1f5c Manual compaction at level-0 from ' \x0a\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x0b\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/01/08-15:13:35.211 1f5c Level-0 table #2029: started
+2025/01/08-15:13:35.226 1f5c Level-0 table #2029: 1095522 bytes OK
+2025/01/08-15:13:35.228 1f5c Delete type=0 #2022
+2025/01/08-15:13:36.719 1f5c Compacting 1@1 + 3@2 files
+2025/01/08-15:13:36.762 1f5c Generated table #2030@1: 61015 keys, 2222160 bytes
+2025/01/08-15:13:36.794 1f5c Generated table #2031@1: 32177 keys, 2205154 bytes
+2025/01/08-15:13:36.818 1f5c Generated table #2032@1: 42212 keys, 1734133 bytes
+2025/01/08-15:13:36.818 1f5c Compacted 1@1 + 3@2 files => 6161447 bytes
+2025/01/08-15:13:36.819 1f5c compacted to: files[ 0 0 3 0 0 0 0 ]
+2025/01/08-15:13:36.820 1f5c Delete type=2 #2024
+2025/01/08-15:13:36.820 1f5c Delete type=2 #2025
+2025/01/08-15:13:36.820 1f5c Delete type=2 #2026
+2025/01/08-15:13:36.820 1f5c Delete type=2 #2029
+2025/01/08-15:14:38.081 1f5c Level-0 table #2034: started
+2025/01/08-15:14:38.097 1f5c Level-0 table #2034: 1092311 bytes OK
+2025/01/08-15:14:38.099 1f5c Delete type=0 #2028
