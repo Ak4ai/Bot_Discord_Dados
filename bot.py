@@ -120,7 +120,7 @@ def recarregar_pagina(driver):
 # Função para garantir que o login seja feito novamente, se necessário
 def verificar_login(driver):
     try:
-        WebDriverWait(driver, 80).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.CLASS_NAME, "landing-headerTitle"))
         )
         logger.info("Requer login. Aguardando...")
@@ -143,7 +143,9 @@ def iniciar_driver():
     options.add_argument("--disable-extensions")
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
-    options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
+    options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos  
+    options.add_argument("--headless=new")  # Esxecuta sem interface gráfica
+    options.add_argument("--headless")  # Adiciona a opção headless
 
     driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://web.whatsapp.com")
