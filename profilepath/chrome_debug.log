@@ -1,10 +1,16 @@
-[28476:12936:0108/151330.130:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.206 (not a warning)
-[28476:12936:0108/151330.185:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[19892:21352:0108/151330.233:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[9728:13452:0108/151330.280:INFO:cpu_info.cc(53)] Available number of cores: 16
-[19892:21352:0108/151330.290:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[19892:21352:0108/151330.290:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[18232:11140:0108/151330.327:INFO:cpu_info.cc(53)] Available number of cores: 16
-[29340:21028:0108/151330.648:INFO:cpu_info.cc(53)] Available number of cores: 16
-[28476:12936:0108/151330.926:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yA/r/v68J9TYPNlv.js (156)
-[24264:28352:0108/151331.074:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14076:19100:0108/154110.837:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.206 (not a warning)
+[14076:19100:0108/154110.883:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[9932:15244:0108/154111.003:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[29012:2352:0108/154111.018:INFO:cpu_info.cc(53)] Available number of cores: 16
+[10176:27884:0108/154111.018:INFO:cpu_info.cc(53)] Available number of cores: 16
+[9932:15244:0108/154111.047:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[9932:15244:0108/154111.047:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[20372:19440:0108/154111.201:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14524:14008:0108/154111.384:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14076:19100:0108/154111.653:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yA/r/v68J9TYPNlv.js (156)
+[29068:22496:0108/154111.761:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14076:19100:0108/154214.168:INFO:CONSOLE(71)] "ErrorUtils caught an error:
+
+Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"559991240774@c.us","pushname":".","type":"out","isBusiness":false,"isEnterprise":false,"isSmb":false,"textStatusLastUpdateTime":-1,"syncToAddressbook":false},"showNotifyName":true,"elevatedPushNamesEna" (type=object,Object)
+
+Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yJ/r/sCs_SFWyj76.js (71)

@@ -120,7 +120,7 @@ def recarregar_pagina(driver):
 # Função para garantir que o login seja feito novamente, se necessário
 def verificar_login(driver):
     try:
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 80).until(
             EC.presence_of_element_located((By.CLASS_NAME, "landing-headerTitle"))
         )
         logger.info("Requer login. Aguardando...")
@@ -138,14 +138,12 @@ def iniciar_driver():
     # Diretório onde os dados do perfil do Chrome serão salvos
     profile_path = os.path.join(os.path.dirname(__file__), "profilepath")  # Caminho relativo ao diretório do script
     options.add_argument(f"user-data-dir={profile_path}")
-    options.add_argument("--headless")  # Adiciona a opção headless
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
     options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos
-    options.add_argument("--headless=new")  # Executa sem interface gráfica
 
     driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://web.whatsapp.com")
@@ -187,8 +185,8 @@ if __name__ == "__main__":
             resultado = verificar_ultima_mensagem(driver)
             if resultado is not None:
                 enviar_mensagem(driver, str(resultado))
-                
-            sleep(1)  # Aguarda 1 segundo antes de verificar novamente
+
+            sleep(1)  # Ajuste o tempo de espera conforme necessário
 
     except KeyboardInterrupt:
         logger.info("Interrupção manual detectada. Encerrando o bot.")
