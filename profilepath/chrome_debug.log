@@ -1,16 +1,12 @@
-[21800:19184:0108/155600.110:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.206 (not a warning)
-[21800:19184:0108/155600.443:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[18644:23720:0108/155600.498:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[3844:28060:0108/155600.621:INFO:cpu_info.cc(53)] Available number of cores: 16
-[18644:23720:0108/155600.630:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[18644:23720:0108/155600.630:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[16848:21596:0108/155600.661:INFO:cpu_info.cc(53)] Available number of cores: 16
-[5068:25012:0108/155600.937:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21800:19184:0108/155601.230:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yA/r/v68J9TYPNlv.js (156)
-[12028:7396:0108/155601.301:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21800:19184:0108/155605.546:INFO:CONSOLE(71)] "ErrorUtils caught an error:
+[18216:21268:0110/115907.109:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.265 (not a warning)
+[18216:21268:0110/115907.166:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[10356:13816:0110/115907.271:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[10356:13816:0110/115907.360:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[10356:13816:0110/115907.360:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[18216:21268:0110/115907.900:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y9/r/i-KWhGvdMXm.js (156)
+[18216:21268:0110/115916.322:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y9/r/i-KWhGvdMXm.js (156)
+[18216:21268:0110/115943.648:INFO:CONSOLE(71)] "ErrorUtils caught an error:
 
 Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"559991240774@c.us","pushname":".","type":"in","isContactSyncCompleted":1,"textStatusLastUpdateTime":-1,"syncToAddressbook":false},"showNotifyName":true,"elevatedPushNamesEnabled":true,"onClick":null}}" (type=object,Object)
 
 Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yJ/r/sCs_SFWyj76.js (71)
-[5068:29028:0108/155629.649:ERROR:ffmpeg_common.cc(970)] Unsupported pixel format: -1

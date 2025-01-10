@@ -28,29 +28,50 @@ def verificar_ultima_mensagem(driver):
             ultima_mensagem = mensagens[-1].text
             logger.info(f"Última mensagem: {ultima_mensagem}")
 
-            # Verifica se a mensagem segue o formato "/xdyh"
-            match_highest = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)?", ultima_mensagem)
-            if match_highest:
-                quantidade = int(match_highest.group(1))
-                lados = int(match_highest.group(2))
-                modificador = int(match_highest.group(3)) if match_highest.group(3) else 0
+            # Ignora mensagens que já contenham "Resultado" para evitar loops
+            if "Resultado" in ultima_mensagem:
+                logger.info("Mensagem ignorada para evitar loop.")
+                return None
+            
+            # Verifica se a mensagem segue o formato "/xdyh+z"
+            match_highest_with_modifier = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)", ultima_mensagem)
+            if match_highest_with_modifier:
+                quantidade = int(match_highest_with_modifier.group(1))
+                lados = int(match_highest_with_modifier.group(2))
+                modificador = int(match_highest_with_modifier.group(3))
 
                 if quantidade > 0 and lados > 0:
                     resultados = [random.randint(1, lados) for _ in range(quantidade)]
                     maior = max(resultados) + modificador
-                    return f"Resultados: {resultados} | Maior Valor (com Modificador): {maior}"
+                    return f"Resultado: {resultados} | Maior Valor (com Modificador): {maior}"
 
-            # Verifica se a mensagem segue o formato "/xdy"
-            match = re.match(r"(?i)(\d+)d(\d+)([+-]\d+)?", ultima_mensagem)
-            if match:
-                quantidade = int(match.group(1))
-                lados = int(match.group(2))
-                modificador = int(match.group(3)) if match.group(3) else 0
+            # Verifica se a mensagem segue o formato "/xdyh"
+            match_highest = re.match(r"(?i)(\d+)d(\d+)h", ultima_mensagem)
+            if match_highest:
+                quantidade = int(match_highest.group(1))
+                lados = int(match_highest.group(2))
 
                 if quantidade > 0 and lados > 0:
                     resultados = [random.randint(1, lados) for _ in range(quantidade)]
-                    soma = sum(resultados) + modificador
-                    return f"Resultados: {resultados} | Modificador: {modificador} | Soma Total: {soma}"
+                    maior = max(resultados)
+                    return f"Resultado: {resultados} | Maior Valor: {maior}"
+
+            # Verifica se a mensagem segue o formato "xdy+z,xdy+z"
+            match_multi_complex = re.findall(r"(\d+)d(\d+)([+-]\d+)?", ultima_mensagem)
+            if match_multi_complex:
+                resultados = []
+                for quantidade, lados, modificador in match_multi_complex:
+                    quantidade = int(quantidade)
+                    lados = int(lados)
+                    modificador = int(modificador) if modificador else 0
+
+                    if quantidade > 0 and lados > 0:
+                        rolagens = [random.randint(1, lados) for _ in range(quantidade)]
+                        soma = sum(rolagens)
+                        total = soma + modificador
+                        resultados.append(f"{quantidade}d{lados}: {rolagens} | Soma: {soma} | Modificador: {modificador} | Total: {total}")
+                return f"Resultado: {' | '.join(resultados)}"
+
 
             # Verifica se a mensagem segue o formato "/dx"
             match_single = re.match(r"(?i)d(\d+)([+-]\d+)?", ultima_mensagem)
@@ -59,8 +80,9 @@ def verificar_ultima_mensagem(driver):
                 modificador = int(match_single.group(2)) if match_single.group(2) else 0
 
                 if lados > 0:
-                    resultado = random.randint(1, lados) + modificador
-                    return f"Resultado: {resultado} (com Modificador: {modificador})"
+                    resultado = random.randint(1, lados)
+                    total = resultado + modificador
+                    return f"Resultado do dado: {resultado} | Modificador: {modificador} | Soma Total: {total}"
 
         else:
             logger.info("Nenhuma mensagem encontrada.")
@@ -144,8 +166,7 @@ def iniciar_driver():
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
     options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos  
-    options.add_argument("--headless=new")  # Esxecuta sem interface gráfica
-    options.add_argument("--headless")  # Adiciona a opção headless
+    #options.add_argument("--headless")  # Adiciona a opção headless
 
     driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://web.whatsapp.com")
