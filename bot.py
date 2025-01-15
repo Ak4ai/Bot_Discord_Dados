@@ -166,7 +166,7 @@ def iniciar_driver():
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
     options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos  
-    #options.add_argument("--headless")  # Adiciona a opção headless
+    options.add_argument("--headless")  # Adiciona a opção headless
 
     driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://web.whatsapp.com")

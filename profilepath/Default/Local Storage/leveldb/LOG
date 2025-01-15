@@ -1,3 +1,5 @@
-2025/01/10-11:59:07.244 5cbc Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
-2025/01/10-11:59:07.248 5cbc Recovering log #3
-2025/01/10-11:59:07.250 5cbc Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/000003.log 
+2025/01/15-11:57:13.571 5728 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
+2025/01/15-11:57:13.577 5728 Recovering log #3
+2025/01/15-11:57:13.578 5728 Level-0 table #3: started
+2025/01/15-11:57:13.582 5728 Level-0 table #3: 21332 bytes OK
+2025/01/15-11:57:13.586 5728 Delete type=0 #3

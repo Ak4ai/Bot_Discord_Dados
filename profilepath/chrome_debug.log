@@ -1,12 +1,11 @@
-[18216:21268:0110/115907.109:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.265 (not a warning)
-[18216:21268:0110/115907.166:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[10356:13816:0110/115907.271:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[10356:13816:0110/115907.360:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[10356:13816:0110/115907.360:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[18216:21268:0110/115907.900:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y9/r/i-KWhGvdMXm.js (156)
-[18216:21268:0110/115916.322:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/y9/r/i-KWhGvdMXm.js (156)
-[18216:21268:0110/115943.648:INFO:CONSOLE(71)] "ErrorUtils caught an error:
-
-Converting to a string will drop content data. Hash="undefined" Translation="{user_name} adicionou {names}" Content="{"key":null,"ref":null,"props":{"contact":{"id":"559991240774@c.us","pushname":".","type":"in","isContactSyncCompleted":1,"textStatusLastUpdateTime":-1,"syncToAddressbook":false},"showNotifyName":true,"elevatedPushNamesEnabled":true,"onClick":null}}" (type=object,Object)
-
-Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs.", source: https://static.whatsapp.net/rsrc.php/v4/yJ/r/sCs_SFWyj76.js (71)
+[14088:20944:0115/115713.407:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.265 (not a warning)
+[14088:20944:0115/115713.489:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[21260:3224:0115/115713.615:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[24756:25356:0115/115713.625:INFO:cpu_info.cc(53)] Available number of cores: 16
+[24900:24956:0115/115713.626:INFO:cpu_info.cc(53)] Available number of cores: 16
+[21260:3224:0115/115713.694:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[21260:3224:0115/115713.694:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[5188:3204:0115/115713.871:INFO:cpu_info.cc(53)] Available number of cores: 16
+[11320:20312:0115/115713.954:INFO:cpu_info.cc(53)] Available number of cores: 16
+[14088:20944:0115/115714.236:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yH/r/88Y2H2qUupc.js (156)
+[7260:3884:0115/115714.316:INFO:cpu_info.cc(53)] Available number of cores: 16
