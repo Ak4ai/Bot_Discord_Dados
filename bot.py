@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from time import sleep
+from time import sleep, time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import random
@@ -12,10 +12,26 @@ import os
 import logging
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
+from threading import Thread
+from datetime import datetime, timedelta
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.remote.remote_connection import RemoteConnection
+import urllib3
+
+# Configurando o pool de conexões para o urllib3
+http = urllib3.PoolManager(maxsize=10)  # Aumente o maxsize se necessário
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Configurações de limites
+LIMITE_QUANTIDADE = 5000
+LIMITE_LADOS = 1000
+TEMPO_LIMITE_ROLAGEM = 5  # Segundos
+
+# Lista de participantes para sorteio
+documentos_participantes = ["Henrique", "Samuel", "Pedro", "Joao Pedro", "Gabriel", "Thiago"]
 
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
@@ -32,13 +48,16 @@ def verificar_ultima_mensagem(driver):
             if "Resultado" in ultima_mensagem:
                 logger.info("Mensagem ignorada para evitar loop.")
                 return None
-            
+
             # Verifica se a mensagem segue o formato "/xdyh+z"
             match_highest_with_modifier = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)", ultima_mensagem)
             if match_highest_with_modifier:
                 quantidade = int(match_highest_with_modifier.group(1))
                 lados = int(match_highest_with_modifier.group(2))
                 modificador = int(match_highest_with_modifier.group(3))
+
+                if quantidade > LIMITE_QUANTIDADE or lados > LIMITE_LADOS:
+                    return f"Erro: Limite excedido. Máximo permitido: {LIMITE_QUANTIDADE}d{LIMITE_LADOS}"
 
                 if quantidade > 0 and lados > 0:
                     resultados = [random.randint(1, lados) for _ in range(quantidade)]
@@ -50,6 +69,9 @@ def verificar_ultima_mensagem(driver):
             if match_highest:
                 quantidade = int(match_highest.group(1))
                 lados = int(match_highest.group(2))
+
+                if quantidade > LIMITE_QUANTIDADE or lados > LIMITE_LADOS:
+                    return f"Erro: Limite excedido. Máximo permitido: {LIMITE_QUANTIDADE}d{LIMITE_LADOS}"
 
                 if quantidade > 0 and lados > 0:
                     resultados = [random.randint(1, lados) for _ in range(quantidade)]
@@ -65,6 +87,9 @@ def verificar_ultima_mensagem(driver):
                     lados = int(lados)
                     modificador = int(modificador) if modificador else 0
 
+                    if quantidade > LIMITE_QUANTIDADE or lados > LIMITE_LADOS:
+                        return f"Erro: Limite excedido. Máximo permitido: {LIMITE_QUANTIDADE}d{LIMITE_LADOS}"
+
                     if quantidade > 0 and lados > 0:
                         rolagens = [random.randint(1, lados) for _ in range(quantidade)]
                         soma = sum(rolagens)
@@ -72,12 +97,14 @@ def verificar_ultima_mensagem(driver):
                         resultados.append(f"{quantidade}d{lados}: {rolagens} | Soma: {soma} | Modificador: {modificador} | Total: {total}")
                 return f"Resultado: {' | '.join(resultados)}"
 
-
             # Verifica se a mensagem segue o formato "/dx"
             match_single = re.match(r"(?i)d(\d+)([+-]\d+)?", ultima_mensagem)
             if match_single:
                 lados = int(match_single.group(1))
                 modificador = int(match_single.group(2)) if match_single.group(2) else 0
+
+                if lados > LIMITE_LADOS:
+                    return f"Erro: Limite excedido. Máximo permitido: d{LIMITE_LADOS}"
 
                 if lados > 0:
                     resultado = random.randint(1, lados)
@@ -186,12 +213,34 @@ def iniciar_driver():
     sleep(5)  # Aguarda a página carregar
     return driver
 
+# Função para agendar sorteio diário
+def agendar_sorteio(driver, nome_grupo):
+    def sorteio_diario():
+        while True:
+            agora = datetime.now()
+            proximo_sorteio = (agora + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)
+            tempo_espera = (proximo_sorteio - agora).total_seconds()
+
+            logger.info(f"Próximo sorteio será em: {tempo_espera / 3600:.2f} horas.")
+            mensagem = f"Próximo sorteio será em: {tempo_espera / 3600:.2f} horas."	
+            enviar_mensagem(driver, mensagem)
+            sleep(tempo_espera)
+
+            sorteado = random.choice(documentos_participantes)
+            mensagem = f"A pessoa sorteada do dia para enviar um documento foi: {sorteado}"
+            enviar_mensagem(driver, mensagem)
+
+    Thread(target=sorteio_diario, daemon=True).start()
+
 if __name__ == "__main__":
     driver = iniciar_driver()
 
     # Solicita o nome do grupo ao usuário
     nome_grupo = input("Digite o nome do grupo: ")
     abrir_grupo(driver, nome_grupo)
+
+    # Inicia o sorteio diário
+    agendar_sorteio(driver, nome_grupo)
 
     try:
         while True:

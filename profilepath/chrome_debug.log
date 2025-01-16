@@ -1,11 +1,28 @@
-[14088:20944:0115/115713.407:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.265 (not a warning)
-[14088:20944:0115/115713.489:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
-[21260:3224:0115/115713.615:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
-[24756:25356:0115/115713.625:INFO:cpu_info.cc(53)] Available number of cores: 16
-[24900:24956:0115/115713.626:INFO:cpu_info.cc(53)] Available number of cores: 16
-[21260:3224:0115/115713.694:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
-[21260:3224:0115/115713.694:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
-[5188:3204:0115/115713.871:INFO:cpu_info.cc(53)] Available number of cores: 16
-[11320:20312:0115/115713.954:INFO:cpu_info.cc(53)] Available number of cores: 16
-[14088:20944:0115/115714.236:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yH/r/88Y2H2qUupc.js (156)
-[7260:3884:0115/115714.316:INFO:cpu_info.cc(53)] Available number of cores: 16
+[6672:28328:0116/184632.718:WARNING:chrome_main_delegate.cc(672)] This is Chrome version 131.0.6778.265 (not a warning)
+[6672:28328:0116/184632.785:INFO:chrome_browser_cloud_management_controller.cc(196)] No machine level policy manager exists.
+[10612:26096:0116/184632.819:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)
+[9084:22416:0116/184632.899:INFO:cpu_info.cc(53)] Available number of cores: 16
+[10612:26096:0116/184632.908:ERROR:gpu_channel_manager.cc(952)] Failed to create GLES3 context, fallback to GLES2.
+[10612:26096:0116/184632.908:ERROR:gpu_channel_manager.cc(963)] ContextResult::kFatalFailure: Failed to create shared context for virtualization.
+[26760:7292:0116/184632.948:INFO:cpu_info.cc(53)] Available number of cores: 16
+[25180:9984:0116/184633.236:INFO:cpu_info.cc(53)] Available number of cores: 16
+[27444:9872:0116/184633.480:INFO:cpu_info.cc(53)] Available number of cores: 16
+[6672:28328:0116/184633.501:INFO:CONSOLE(156)] "Event handler of 'x-storagemutated-1' event must be added on the initial evaluation of worker script.", source: https://static.whatsapp.net/rsrc.php/v4/yo/r/1jAC9uEXgrJ.js (156)
+[10612:14120:0116/184716.467:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 146 is too big.
+[10612:14120:0116/184724.858:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 168 is too big.
+[10612:14120:0116/184725.398:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 524 is too big.
+[10612:14120:0116/184734.587:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 160 is too big.
+[10612:14120:0116/184737.426:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 2518 is too big.
+[10612:14120:0116/184806.354:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 10460 is too big.
+[10612:14120:0116/184815.481:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 136 is too big.
+[6672:28328:0116/184827.920:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184832.920:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184837.921:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[10612:14120:0116/184842.610:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 6073 is too big.
+[10612:14120:0116/184914.378:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 198 is too big.
+[6672:28328:0116/184927.969:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184932.970:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184942.972:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184947.973:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[6672:28328:0116/184952.973:WARNING:page_discarding_helper.cc(148)] Discarding multiple pages with target (kb): 0
+[10612:14120:0116/184954.709:ERROR:latency_info.cc(93)] CompositorFrameSinkSupport::MaybeSubmitCompositorFrame, LatencyInfo vector size 14067 is too big.
