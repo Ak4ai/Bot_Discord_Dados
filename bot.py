@@ -14,6 +14,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
 from datetime import datetime, timedelta
 from threading import Thread
+from pytz import timezone
 
 documentos_participantes = ["Henrique", "Joao Pedro", "Gabriel", "Samuel", "Pedro", "Thiago"]
 
@@ -21,8 +22,11 @@ documentos_participantes = ["Henrique", "Joao Pedro", "Gabriel", "Samuel", "Pedr
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+proximo_sorteio_global = None
+
 # Função para capturar e verificar a última mensagem do grupo
 def verificar_ultima_mensagem(driver):
+    global proximo_sorteio_global
     try:
         # Localiza todas as mensagens visíveis na conversa
         mensagens = driver.find_elements(By.CSS_SELECTOR, "span.selectable-text")
@@ -48,6 +52,16 @@ def verificar_ultima_mensagem(driver):
                         raise TimeoutError("Rolagem excessiva detectada.")
                     resultados.append(random.randint(1, lados))
                 return resultados
+
+            # Verifica se a mensagem é o comando /sorteio
+            if ultima_mensagem.strip().lower() == "/sorteio":
+                if proximo_sorteio_global:
+                    agora = datetime.now(timezone("America/Sao_Paulo"))
+                    tempo_faltando = (proximo_sorteio_global - agora).total_seconds()
+                    horas, resto = divmod(tempo_faltando, 3600)
+                    minutos, _ = divmod(resto, 60)
+                    return f"Tempo restante para o próximo sorteio: {int(horas)} horas e {int(minutos)} minutos."
+                return "O próximo sorteio ainda não foi agendado."
 
             # Verifica se a mensagem segue o formato "/xdyh+z"
             match_highest_with_modifier = re.match(r"(?i)(\d+)d(\d+)h([+-]\d+)", ultima_mensagem)
@@ -207,7 +221,7 @@ def iniciar_driver():
     options.add_argument("--disable-extensions")
     options.add_argument("--blink-settings=imagesEnabled=false")
     options.add_argument("--disable-gpu")  # Desativa aceleração de hardware
-    options.add_argument("--disable-software-rasterizer")  # Previne erros gráficos  
+    options.add_argument("--disable-software-rasterizer")  # Previne 
     options.add_argument("--headless")  # Adiciona a opção headless
 
     driver = webdriver.Chrome(service=service, options=options)
@@ -228,11 +242,11 @@ def iniciar_driver():
     sleep(5)  # Aguarda a página carregar
     return driver
 
-# Função para agendar sorteio diário
 def agendar_sorteio(driver, nome_grupo):
     def sorteio_diario():
+        fuso_brasilia = timezone("America/Sao_Paulo")
         while True:
-            agora = datetime.now()
+            agora = datetime.now(fuso_brasilia)
             proximo_sorteio = (agora + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)
             tempo_espera = (proximo_sorteio - agora).total_seconds()
 
