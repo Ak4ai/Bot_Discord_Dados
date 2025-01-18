@@ -1,3 +1,13 @@
-2025/01/16-23:54:42.684 4104 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
-2025/01/16-23:54:42.687 4104 Recovering log #9
-2025/01/16-23:54:42.690 4104 Reusing old log c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/000009.log 
+2025/01/18-10:22:42.503 6438 Reusing MANIFEST c:\Users\Henrique\Documents\bot\Bot_Discord_Dados\profilepath\Default\Local Storage\leveldb/MANIFEST-000001
+2025/01/18-10:22:42.507 6438 Recovering log #9
+2025/01/18-10:22:42.507 6438 Level-0 table #12: started
+2025/01/18-10:22:42.513 6438 Level-0 table #12: 14825 bytes OK
+2025/01/18-10:22:42.517 6438 Delete type=0 #9
+2025/01/18-10:22:42.518 6428 Compacting 4@0 + 0@1 files
+2025/01/18-10:22:42.523 6428 Generated table #14@0: 102 keys, 10502 bytes
+2025/01/18-10:22:42.523 6428 Compacted 4@0 + 0@1 files => 10502 bytes
+2025/01/18-10:22:42.525 6428 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/01/18-10:22:42.526 6428 Delete type=2 #3
+2025/01/18-10:22:42.526 6428 Delete type=2 #7
+2025/01/18-10:22:42.526 6428 Delete type=2 #10
+2025/01/18-10:22:42.526 6428 Delete type=2 #12
