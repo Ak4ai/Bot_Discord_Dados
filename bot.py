@@ -98,10 +98,11 @@ def verificar_ultima_mensagem(driver):
                         return f"Resultado: Maior Valor: {maior}"
                     return f"Resultado: {resultados} | Maior Valor: {maior}"
 
-            # Verifica se a mensagem segue o formato "xdy+z,xdy+z"
             match_multi_complex = re.findall(r"(\d+)d(\d+)([+-]\d+)?", ultima_mensagem)
             if match_multi_complex:
                 resultados = []
+                soma_total = 0
+
                 for quantidade, lados, modificador in match_multi_complex:
                     quantidade = int(quantidade)
                     lados = int(lados)
@@ -115,12 +116,14 @@ def verificar_ultima_mensagem(driver):
 
                         soma = sum(rolagens)
                         total = soma + modificador
-                        if quantidade > 10:
-                            resultados.append(f"{quantidade}d{lados}: Soma: {soma} | Modificador: {modificador} | Total: {total}")
-                        else:
-                            resultados.append(f"{quantidade}d{lados}: {rolagens} | Soma: {soma} | Modificador: {modificador} | Total: {total}")
-                return f"Resultado: {' | '.join(resultados)}"
+                        soma_total += total
 
+                        valores = ", ".join(map(str, rolagens))
+                        resultados.append(f"{quantidade}d{lados}: [{valores}]")
+
+                mensagem = "\n".join(resultados)
+                mensagem += f"\nSoma Total: {soma_total}"
+                return f"Resultado:\n{mensagem}"
 
             # Verifica se a mensagem segue o formato "/dx"
             match_single = re.match(r"(?i)d(\d+)([+-]\d+)?", ultima_mensagem)
